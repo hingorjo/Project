@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Plan - Food Security Project</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+      :root {
+      --primary: #0d3b66;
+      --secondary: #2e86ab;
+      --accent: #f18f01;
+      --light: #f9fafc;
+      --dark: #2d3a3a;
+      --success: #5cb85c;
+      --warning: #f0ad4e;
+      --danger: #d9534f;
+    }
+    
+   body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+  padding-top: 70px; /* Offset for fixed navbar */
+  position: relative;
+}
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    
+/* Container for content constraint */
+.container {
+  width: 100%;
+  max-width: 1233px;
+  padding: 0 0px;
+  margin: 0 auto;
+}
+
+    
+/* Fixed Navbar for all devices */
+.navbar {
+  background-color: var(--primary);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1224px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  /* font-size: 1.5rem; */
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand, .nav-link {
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+  margin: 0 5px;
+  font-weight: 500;
+  font-size: 13px;
+  /* padding: 0.5rem 1rem !important; */
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after,
+.nav-link.active:after {
+  width: 70%;
+}
+
+.nav-link.active {
+  color: var(--accent) !important;
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+/* Mobile Navbar Toggler */
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Navbar scroll effect */
+.navbar-scrolled {
+  padding: 8px 0;
+  background-color: rgba(13, 59, 102, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--primary);
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 10px;
+  }
+  
+  .navbar-nav {
+    padding: 10px 0;
+  }
+  
+  .nav-link {
+    padding: 10px 15px !important;
+    margin: 5px 0;
+  }
+  
+  .nav-link:after {
+    display: none;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand i {
+    margin-right: 5px;
+  }
+  
+  .navbar-toggler {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+    
+    .content-section {
+      padding: 0px 0;
+    }
+    
+    .page-header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 80px 0 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+    }
+    
+    .page-header h1 {
+      color: white;
+      margin-bottom: 20px;
+      padding-top: 30px;
+    }
+    
+    .page-header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    .sub-section {
+      margin-top: 50px;
+      padding: 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .sub-section:hover {
+      transform: translateY(-5px);
+    }
+    
+    .sub-section h2 {
+      position: relative;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+    
+    .sub-section h2:after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .team-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      border-top: 4px solid var(--secondary);
+      text-align: center;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    
+    .team-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 20px;
+      border: 4px solid var(--light);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .team-name {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    
+    .team-role {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .risk-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 30px;
+    }
+    
+    .risk-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      border-left: 4px solid var(--warning);
+    }
+    
+    .risk-card.critical {
+      border-left: 4px solid var(--danger);
+    }
+    
+    .risk-card.low {
+      border-left: 4px solid var(--success);
+    }
+    
+    .risk-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    
+    .risk-title {
+      font-size: 1.2rem;
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .risk-type {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .risk-type.technical {
+      background: rgba(240, 173, 78, 0.2);
+      color: var(--warning);
+    }
+    
+    .risk-type.environmental {
+      background: rgba(92, 184, 92, 0.2);
+      color: var(--success);
+    }
+    
+    .risk-type.operational {
+      background: rgba(217, 83, 79, 0.2);
+      color: var(--danger);
+    }
+    
+    .highlight-box {
+      background: linear-gradient(to right, rgba(13, 59, 102, 0.05), rgba(46, 134, 171, 0.05));
+      border-left: 4px solid var(--accent);
+      padding: 20px;
+      margin: 25px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    footer {
+      background-color: var(--primary);
+      color: #fff;
+      text-align: center;
+      padding: 25px 0;
+      margin-top: 60px;
+    }
+    
+    .dissemination-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .method-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .method-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+    
+    .method-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+    /* Work Package Section */
+        .sub-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .sub-section h2 {
+            font-size: 28px;
+            color: #0056b3;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eaeaea;
+            position: relative;
+        }
+        
+        .sub-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 80px;
+            height: 2px;
+            background: #007bff;
+        }
+        
+        .sub-section p {
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        /* Work Package Grid */
+        .work-package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .work-package-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 4px solid #007bff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work-package-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.15);
+        }
+        
+        .work-package-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 123, 255, 0.03) 0%, rgba(0, 86, 179, 0.05) 100%);
+            z-index: 0;
+        }
+        
+        .wp-number {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 60px;
+            height: 60px;
+            background: #007bff;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            z-index: 2;
+        }
+        
+        .wp-title {
+            font-size: 20px;
+            color: #0056b3;
+            margin: 10px 0 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .work-package-card p {
+            color: #555;
+            font-size: 15px;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Different colors for each card */
+        .work-package-card:nth-child(1) {
+            border-left-color: #007bff;
+        }
+        
+        .work-package-card:nth-child(1) .wp-number {
+            background: #007bff;
+        }
+        
+        .work-package-card:nth-child(2) {
+            border-left-color: #28a745;
+        }
+        
+        .work-package-card:nth-child(2) .wp-number {
+            background: #28a745;
+        }
+        
+        .work-package-card:nth-child(3) {
+            border-left-color: #dc3545;
+        }
+        
+        .work-package-card:nth-child(3) .wp-number {
+            background: #dc3545;
+        }
+        
+        .work-package-card:nth-child(4) {
+            border-left-color: #ffc107;
+        }
+        
+        .work-package-card:nth-child(4) .wp-number {
+            background: #ffc107;
+            color: #333;
+        }
+        
+        .work-package-card:nth-child(5) {
+            border-left-color: #6f42c1;
+        }
+        
+        .work-package-card:nth-child(5) .wp-number {
+            background: #6f42c1;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .work-package-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .sub-section {
+                padding: 20px;
+            }
+            
+            .sub-section h2 {
+                font-size: 24px;
+            }
+        }
+
+             /* Timeline Section */
+        .sub-section {
+            background: white;
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+        
+        .sub-section h2 {
+            font-size: 32px;
+            color: #0056b3;
+            margin-bottom: 15px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .sub-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border-radius: 2px;
+        }
+        
+        .sub-section > p {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #555;
+            font-size: 17px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Timeline Container */
+        .timeline-container {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            background: linear-gradient(to bottom, #007bff, #0056b3);
+            border-radius: 2px;
+        }
+        
+        .timeline {
+            position: relative;
+        }
+        
+        .timeline-item {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+        
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .timeline-content {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            position: relative;
+            border-top: 5px solid #007bff;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 123, 255, 0.15);
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007bff;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .timeline-content p {
+            margin-top: 20px;
+            margin-bottom: 15px;
+            color: #444;
+            font-size: 16px;
+        }
+        
+        .timeline-content ul {
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 8px;
+            color: #555;
+            position: relative;
+        }
+        
+        .timeline-content li:before {
+            content: '•';
+            color: #007bff;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            border-left: 4px solid #2196f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .highlight-box p {
+            margin: 0;
+            color: #1565c0;
+            font-style: italic;
+        }
+        
+        /* Different colors for each timeline item */
+        .timeline-item:nth-child(1) .timeline-content {
+            border-top-color: #007bff;
+        }
+        
+        .timeline-item:nth-child(1) .timeline-year {
+            background: #007bff;
+        }
+        
+        .timeline-item:nth-child(2) .timeline-content {
+            border-top-color: #28a745;
+        }
+        
+        .timeline-item:nth-child(2) .timeline-year {
+            background: #28a745;
+        }
+        
+        .timeline-item:nth-child(3) .timeline-content {
+            border-top-color: #ff9800;
+        }
+        
+        .timeline-item:nth-child(3) .timeline-year {
+            background: #ff9800;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .timeline-container:before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            
+            .timeline-content {
+                width: 80%;
+                margin-left: 70px;
+            }
+            
+            .timeline-year {
+                left: -85px;
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .sub-section {
+                padding: 25px 20px;
+            }
+            
+            .sub-section h2 {
+                font-size: 26px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                margin-left: 60px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .timeline-content {
+                margin-left: 50px;
+                padding: 20px 15px;
+            }
+            
+            .timeline-year {
+                padding: 6px 15px;
+                font-size: 16px;
+                left: -70px;
+                min-width: 80px;
+            }
+        }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-seedling me-2"></i>Food Security Project
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="summary.html">Summary</a></li>
+          <li class="nav-item"><a class="nav-link" href="introduction.html">Introduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="importance.html">Importance</a></li>
+          <li class="nav-item"><a class="nav-link active" href="workplan.html">Work Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="researchmethodology.html">Methodology</a></li>
+          <li class="nav-item"><a class="nav-link" href="Project Management.html">Project Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header" data-aos="fade-down">
+    <div class="container">
+      <h1>Work Packages</h1>
+      <p>Strategic roadmap for developing sustainable aquaculture feed through wastewater-derived biomass</p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <!-- Technical Description by Work Package -->
+      <div class="sub-section" data-aos="fade-up" data-aos-delay="200">
+        <h2>Technical Description (Work Packages)</h2>
+        <p>The work plan is divided into a set of interlinked work packages (WPs) designed to systematically address the research objectives:</p>
+        
+        <div class="work-package-grid">
+          <div class="work-package-card">
+            <div class="wp-number">1</div>
+            <h3 class="wp-title">Continuous Flow Operations</h3>
+            <p>Transition of batch PNSB treatment to continuous flow operations, optimizing reactor design and operational parameters for maximum efficiency.</p>
+          </div>
+          
+          <div class="work-package-card">
+            <div class="wp-number">2</div>
+            <h3 class="wp-title">Biomass Characterization</h3>
+            <p>Comprehensive biomass characterization and digestibility improvement studies to ensure safety and nutritional adequacy for aquaculture applications.</p>
+          </div>
+          
+          <div class="work-package-card">
+            <div class="wp-number">3</div>
+            <h3 class="wp-title">Aquaculture Trials</h3>
+            <p>Large-scale aquaculture feeding trials with shrimp and sea bass to evaluate growth performance, health indicators, and feed conversion ratios.</p>
+          </div>
+          
+          <div class="work-package-card">
+            <div class="wp-number">4</div>
+            <h3 class="wp-title">Economic Analysis</h3>
+            <p>Techno-economic analysis and life cycle assessment to evaluate the economic viability and environmental sustainability of the developed process.</p>
+          </div>
+          
+          <div class="work-package-card">
+            <div class="wp-number">5</div>
+            <h3 class="wp-title">Stakeholder Engagement</h3>
+            <p>Stakeholder engagement, farmer surveys, and dissemination activities to ensure practical applicability and market adoption of the developed solutions.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Timeline -->
+      <div class="sub-section" data-aos="fade-up" data-aos-delay="300">
+        <h2>Project Timeline</h2>
+        <p>The 36-month project is structured to systematically achieve its objectives through sequential work packages with overlapping activities where appropriate:</p>
+        
+        <div class="timeline-container">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">Year 1</div>
+                <p>Setup of continuous operation systems, reactor optimization, initial biomass characterization, and baseline studies.</p>
+                <ul>
+                  <li>Months 1-6: Project initiation and laboratory setup</li>
+                  <li>Months 7-12: Continuous system optimization and initial trials</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">Year 2</div>
+                <p>Digestibility studies, intermediate aquaculture trials, scale-up testing, and ongoing biomass optimization.</p>
+                <ul>
+                  <li>Months 13-18: Digestibility improvement studies</li>
+                  <li>Months 19-24: Intermediate feeding trials and process refinement</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-year">Year 3</div>
+                <p>Large-scale feeding trials with shrimp and sea bass, techno-economic analysis, LCA, stakeholder dissemination, and final reporting.</p>
+                <ul>
+                  <li>Months 25-30: Large-scale trials and data collection</li>
+                  <li>Months 31-36: Analysis, reporting, and dissemination</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="highlight-box mt-4">
+          <p>The timeline includes regular progress reviews and milestone assessments to ensure the project stays on track and achieves its objectives within the designated timeframe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Food Security Project | Hamad Bin Khalifa University</p>
+      <div class="mt-2">
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-researchgate"></i></a>
+        <a href="#" class="text-white"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>

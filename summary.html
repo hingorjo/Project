@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Summary - Food Security Project</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+   :root {
+  --primary: #0d3b66;
+  --secondary: #2e86ab;
+  --accent: #f18f01;
+  --light: #f9fafc;
+  --dark: #2d3a3a;
+  --success: #5cb85c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+  padding-top: 70px; /* Offset for fixed navbar */
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Container for content constraint */
+.container {
+  width: 100%;
+  max-width: 1233px;
+  padding: 0 0px;
+  margin: 0 auto;
+}
+
+
+/* Fixed Navbar for all devices */
+.navbar {
+  background-color: var(--primary);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 15px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1224px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  /* font-size: 1.5rem; */
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand, .nav-link {
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+  margin: 0 5px;
+  font-weight: 500;
+  font-size: 13px;
+  /* padding: 0.5rem 1rem !important; */
+}
+
+.nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover:after,
+.nav-link.active:after {
+  width: 70%;
+}
+
+.nav-link.active {
+  color: var(--accent) !important;
+}
+@media (min-width: 992px) {
+    .navbar-expand-lg .navbar-nav .nav-link {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+/* Mobile Navbar Toggler */
+.navbar-toggler {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-color: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+/* Navbar scroll effect */
+.navbar-scrolled {
+  padding: 8px 0;
+  background-color: rgba(13, 59, 102, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+/* Mobile menu adjustments */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: var(--primary);
+    padding: 15px;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    margin-top: 10px;
+  }
+  
+  .navbar-nav {
+    padding: 10px 0;
+  }
+  
+  .nav-link {
+    padding: 10px 15px !important;
+    margin: 5px 0;
+  }
+  
+  .nav-link:after {
+    display: none;
+  }
+  
+  .navbar-brand {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-brand i {
+    margin-right: 5px;
+  }
+  
+  .navbar-toggler {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.content-section {
+  padding: 0px 0;
+  width: 100%;
+}
+
+.page-header {
+     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    padding: 80px 0 60px;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.page-header h1 {
+  color: white;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+.summary-content {
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.summary-content p {
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.highlight-box {
+  background: linear-gradient(to right, rgba(13, 59, 102, 0.05), rgba(46, 134, 171, 0.05));
+  border-left: 4px solid var(--accent);
+  padding: 25px;
+  margin: 30px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.key-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.key-point {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  border-top: 4px solid var(--secondary);
+  text-align: center;
+}
+
+.key-point:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.key-point i {
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.key-point h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+.stat-highlight {
+  background-color: var(--secondary);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+footer {
+  background-color: var(--primary);
+  color: #fff;
+  text-align: center;
+  padding: 25px 0;
+  margin-top: 60px;
+}
+
+/* Text Centering for Mobile & Tablet */
+.text-center-mobile {
+  text-align: left;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1199.98px) {
+  /* Laptop adjustments */
+}
+
+@media (max-width: 991.98px) {
+  /* Small laptop / large tablet adjustments */
+  .page-header h1 {
+    font-size: 2.4rem;
+  }
+  
+  .page-header p {
+    font-size: 1.1rem;
+  }
+  
+ 
+  
+  
+  .key-points {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 767.98px) {
+  /* Tablet adjustments */
+  body {
+    padding-top: 70px;
+  }
+  
+  .page-header {
+    padding: 60px 0 40px;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .page-header p {
+    font-size: 1rem;
+  }
+  
+  .content-section {
+    padding: 40px 0;
+  }
+  
+  .summary-content {
+    padding: 20px;
+  }
+  
+  /* Center content for tablets */
+  .text-center-mobile {
+    text-align: center;
+  }
+  
+  .key-point {
+    text-align: center;
+  }
+  
+  .highlight-box {
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid var(--accent);
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  /* Mobile adjustments */
+  body {
+    padding-top: 60px;
+  }
+  
+  .page-header {
+    padding: 40px 0 30px;
+  }
+  
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .content-section {
+    padding: 30px 0;
+  }
+  
+  .summary-content {
+    padding: 15px;
+  }
+
+  .summary-content p {
+    text-align: center;
+  }
+
+
+  
+ 
+  
+  /* Center content for mobile */
+  .text-center-mobile {
+    text-align: center;
+  }
+  
+  .key-point {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .key-points {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .highlight-box {
+    padding: 20px;
+    text-align: center;
+    border-left: none;
+    border-top: 4px solid var(--accent);
+    border-radius: 8px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="fas fa-seedling me-2"></i>Food Security Project
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="summary.html">Summary</a></li>
+          <li class="nav-item"><a class="nav-link" href="introduction.html">Introduction</a></li>
+          <li class="nav-item"><a class="nav-link" href="importance.html">Importance</a></li>
+          <li class="nav-item"><a class="nav-link" href="workplan.html">Work Packages</a></li>
+          <li class="nav-item"><a class="nav-link" href="researchmethodology.html">Methodology</a></li>
+          <li class="nav-item"><a class="nav-link" href="Project Management.html">Project Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="team.html">Team</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <div class="page-header" data-aos="fade-down">
+    <div class="container">
+      <h1>Project Summary</h1>
+      <p>Advancing sustainable aquaculture in Qatar through innovative wastewater-derived biomass solutions</p>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="summary-content" data-aos="fade-up">
+        <p>Aquaculture is rapidly expanding as the fastest-growing sector of food production globally and plays a critical role in addressing food security challenges in Qatar. Given Qatar's commitment to enhancing its aquaculture capabilities, evidenced by the target set to produce at least <span class="stat-highlight">90% of local fish demands by 2026</span>, the need for sustainable local feed production has become increasingly vital. This need arises from Qatar's limited arable land and depleting marine stocks, which have historically necessitated heavy reliance on importation.</p>
+
+        <div class="key-points">
+          <div class="key-point" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-tint"></i>
+            <h3>Wastewater Transformation</h3>
+            <p>Utilizing Fuel Synthesis Process Water (FSPW) through purple non-sulfur bacteria to create sustainable aquaculture feed</p>
+          </div>
+          
+          <div class="key-point" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-fish"></i>
+            <h3>Protein-Rich Biomass</h3>
+            <p>Achieving up to <span class="stat-highlight">63% protein content</span> in dry biomass from wastewater sources</p>
+          </div>
+          
+          <div class="key-point" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-arrows-alt-h"></i>
+            <h3>Scalable Process</h3>
+            <p>Successfully scaled from laboratory reactors to a <span class="stat-highlight">155L flat panel reactor</span> under natural illumination</p>
+          </div>
+        </div>
+
+        <div class="highlight-box" data-aos="fade-up">
+          <p>In response to these challenges, our project proposes to use microbial protein from wastewater-derived biomass as a sustainable source of aquaculture feed. Leveraging the findings from our previously funded project (Biological Conversion of Fuel Synthesis Process Water to Single-cell Protein for Aquaculture Feed using Purple Phototrophic Bacteria— MME01-0910-190029), we established the feasibility of treating one of Qatar's most abundant wastewater streams.</p>
+        </div>
+
+        <p data-aos="fade-up">This process successfully achieved up to 63% protein content in the dry biomass and was scaled up from small laboratory reactors to a 155L flat panel reactor under natural illumination. Initial trials replacing 30% of shrimp feed with this protein showed promising results comparable to conventional feeds.</p>
+
+        <p data-aos="fade-up">Building upon this foundational work, our current project seeks to advance the practicability of this bioprocess by transitioning from batch and fed-batch processes to continuous wastewater treatment and resource recovery. This change aligns more closely with the operational modalities of conventional wastewater treatment plants, thus enhancing scalability and integration potential.</p>
+
+        <div class="highlight-box" data-aos="fade-up">
+          <p>We aim to improve the digestibility of the biomass, which could potentially increase the feed replacement rate beyond the 30% achieved in preliminary trials, thereby further reducing dependency on conventional feed sources.</p>
+        </div>
+
+        <p data-aos="fade-up">Additionally, we plan to conduct large-scale aquaculture trials with shrimp and sea bass, the most in-demand aquatics locally, using the optimized digestible biomass. To ensure the socio-economic viability and environmental sustainability of this approach, we will evaluate the local market through farmer acceptability surveys, perform techno-economic analysis, and undertake a comprehensive life cycle assessment (LCA).</p>
+
+        <div class="key-points">
+          <div class="key-point" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-clipboard-check"></i>
+            <h3>Proven Team</h3>
+            <p>Experienced research team with established credentials including patents and publications</p>
+          </div>
+          
+          <div class="key-point" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-handshake"></i>
+            <h3>Strong Partnerships</h3>
+            <p>Collaboration with Shell Qatar for sustainable FSPW supply</p>
+          </div>
+          
+          <div class="key-point" data-aos="fade-up" data-aos-delay="300">
+            <i class="fas fa-chart-line"></i>
+            <h3>Comprehensive Analysis</h3>
+            <p>Techno-economic and life cycle assessment to validate feasibility</p>
+          </div>
+        </div>
+
+        <p data-aos="fade-up">Our experienced research team, which has previously demonstrated capability in both the upstream and downstream aspects of PNSB bioprocess optimization, supports this Project. With established credentials, including a patent application, several publications, and international presentations, coupled with essential resources and a collaboration with Shell Qatar for the supply of FSPW, we are exceptionally positioned to further this innovative technology.</p>
+
+        <div class="highlight-box" data-aos="fade-up">
+          <p>This Project not only seeks to enhance the technical feasibility of utilizing wastewater-derived biomass for aquafeed but also aims to assess its broader impacts, reinforcing Qatar's push for sustainable aquaculture practices and contributing significantly to national food security goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Food Security Project | Hamad Bin Khalifa University</p>
+      <div class="mt-2">
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-researchgate"></i></a>
+        <a href="#" class="text-white"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      offset: 100
+    });
+  </script>
+</body>
+</html>
